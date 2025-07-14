@@ -16,7 +16,9 @@ A comprehensive React component library for financial data visualization with 22
 - **Performance Optimized**: Memoized components and efficient rendering
 - **TypeScript Ready**: Full TypeScript support with comprehensive type definitions
 
-## Installation
+## Installation Options
+
+### Option 1: NPM Package (If Published)
 
 ```bash
 npm install react-advanced-trading-chart
@@ -24,6 +26,55 @@ npm install react-advanced-trading-chart
 
 ```bash
 yarn add react-advanced-trading-chart
+```
+
+### Option 2: Git Installation (Recommended for Private Use)
+
+Install directly from GitHub repository without publishing to NPM:
+
+```bash
+npm install git+https://github.com/DeadmanLabs/OpenViewAdvanced.git
+```
+
+With specific branch/tag:
+```bash
+npm install git+https://github.com/DeadmanLabs/OpenViewAdvanced.git#master
+```
+
+### Option 3: Local File Installation
+
+Install from local file system:
+
+```bash
+# From absolute path
+npm install /path/to/OpenViewAdvanced
+
+# From relative path
+npm install ../OpenViewAdvanced
+```
+
+### Option 4: Development Linking
+
+For active development with live updates:
+
+```bash
+# In the OpenViewAdvanced directory
+npm link
+
+# In your project directory
+npm link react-advanced-trading-chart
+```
+
+### Option 5: Tarball Installation
+
+Use the pre-built package tarball:
+
+```bash
+# Build the tarball (in OpenViewAdvanced directory)
+npm pack
+
+# Install in your project
+npm install /path/to/react-advanced-trading-chart-1.0.0.tgz
 ```
 
 ## Quick Start
@@ -396,6 +447,159 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📖 [Documentation](https://github.com/DeadmanLabs/OpenViewAdvanced)
 - 🐛 [Issue Tracker](https://github.com/DeadmanLabs/OpenViewAdvanced/issues)
 - 💬 [Discussions](https://github.com/DeadmanLabs/OpenViewAdvanced/discussions)
+
+## Codebase Architecture & Review
+
+### Project Structure
+
+```
+src/
+├── lib/
+│   └── index.js                 # Main package exports
+├── utils/
+│   ├── dataTransformation.js    # OHLC data interval transformation
+│   └── intervalUtils.js         # Time range and validation utilities
+├── App.js                       # Demo application (not exported)
+├── TradingChart.js             # Main package component
+├── PriceChart.js               # Core chart rendering component
+├── TopBar.js                   # Navigation and controls
+├── LeftSidebar.js              # Drawing tools sidebar
+├── FooterBar.js                # Time range and axis controls
+├── OHLCTooltip.js              # Custom price data tooltip
+├── useMarketData.js            # Data fetching hook (demo only)
+└── *.css                       # Component stylesheets
+
+lib/                            # Built package files
+├── index.js                    # CommonJS build
+├── index.esm.js               # ES modules build
+└── *.css                      # Bundled stylesheets
+
+TradingViewIcons/              # 120+ SVG trading tool icons
+```
+
+### Component Architecture
+
+#### 1. **TradingChart.js** - Main Component
+- **Purpose**: Package-friendly wrapper for complete trading interface
+- **Key Features**:
+  - Accepts data as props (no internal data fetching)
+  - Configurable UI components (show/hide bars, sidebars)
+  - Callback handlers for user interactions
+  - Default settings with full customization
+- **Props**: 20+ configurable properties
+- **Performance**: Memoized handlers and optimized re-renders
+
+#### 2. **PriceChart.js** - Core Chart Engine
+- **Purpose**: Financial chart rendering with 22+ chart types
+- **Architecture**:
+  - Built on react-financial-charts library
+  - Custom data transformation pipeline
+  - Advanced chart type implementations
+  - Comprehensive error handling and fallbacks
+- **Chart Types**:
+  - **Basic**: Candlesticks, Bars, Lines, Areas (8 types)
+  - **Advanced**: Heikin Ashi, Renko, Kagi, Point & Figure (6 types)
+  - **Specialized**: Volume candles, Hollow candles, Step lines (8 types)
+- **Features**:
+  - Responsive sizing with auto-scaling
+  - Custom Y-axis modes (linear, log, percentage)
+  - Volume chart integration
+  - Interactive crosshair and tooltips
+  - Zoom and pan functionality
+
+#### 3. **Data Processing Pipeline**
+- **dataTransformation.js**: 
+  - Converts raw OHLC data between intervals (1m → 5m, 1h, etc.)
+  - Validation and error handling for invalid transformations
+  - Support for advanced chart calculations (Heikin Ashi, Renko)
+- **intervalUtils.js**:
+  - Time range filtering and validation
+  - Candle count calculations
+  - Business logic for interval/range combinations
+
+#### 4. **UI Components**
+- **TopBar.js**: Interval selectors, chart type picker, symbol display
+- **LeftSidebar.js**: 120+ trading tools with collapsible categories
+- **FooterBar.js**: Time range selectors, axis controls, real-time clock
+- **OHLCTooltip.js**: Custom tooltip showing OHLC values and volume
+
+### Technical Implementation
+
+#### Performance Optimizations
+- **React.memo**: All major components memoized to prevent unnecessary re-renders
+- **useCallback**: Event handlers memoized to maintain referential equality
+- **useMemo**: Expensive calculations cached (data transformations, chart settings)
+- **Component Isolation**: Menu state changes don't trigger chart re-renders
+
+#### Error Handling
+- **Data Validation**: Comprehensive validation for OHLC data structure
+- **Transformation Errors**: Graceful handling of invalid interval conversions
+- **Chart Fallbacks**: Advanced chart types fall back to candlesticks on errors
+- **User Feedback**: Clear error messages for invalid operations
+
+#### Build System
+- **Rollup**: Modern bundler for clean ES/CommonJS builds
+- **Babel**: JSX and modern JavaScript transformation
+- **Tree Shaking**: Dead code elimination for smaller bundles
+- **External Dependencies**: React and D3 marked as externals
+
+### Code Quality
+
+#### Strengths
+- ✅ **Comprehensive Type Safety**: PropTypes for all components
+- ✅ **Modular Architecture**: Clear separation of concerns
+- ✅ **Performance Focused**: Optimized for large datasets
+- ✅ **Error Resilient**: Robust error handling throughout
+- ✅ **Well Documented**: Extensive inline documentation
+- ✅ **Configurable**: 20+ customization options
+- ✅ **Package Ready**: Professional NPM package structure
+
+#### Advanced Features
+- **Data Transformation Engine**: Converts between any time intervals
+- **Chart Type Flexibility**: Easy to add new chart types
+- **Custom Calculations**: Heikin Ashi, Renko, Kagi implementations
+- **TradingView Parity**: Professional trading platform interface
+- **Mobile Responsive**: Touch-friendly interactions
+
+#### Dependencies
+- **Core**: React 16.8+, react-financial-charts 2.0+
+- **Utilities**: D3 ecosystem (format, time-format, scale, shape)
+- **Build**: Rollup, Babel, modern toolchain
+- **Peer Dependencies**: React and ReactDOM as externals
+
+### Installation Recommendations
+
+1. **Git Installation** (Recommended for private use)
+2. **Local Development**: npm link for active development
+3. **Production**: Tarball for stable deployments
+4. **Team Distribution**: Git tags for version management
+
+### Usage Patterns
+
+#### Standalone Chart
+```jsx
+<PriceChart data={ohlcData} chartType="heikinAshi" />
+```
+
+#### Full Trading Interface
+```jsx
+<TradingChart 
+  data={ohlcData} 
+  symbolName="BTC/USD" 
+  onIntervalChange={handler}
+/>
+```
+
+#### Custom Layout
+```jsx
+<div>
+  <TopBar {...props} />
+  <PriceChart {...props} />
+  <FooterBar {...props} />
+</div>
+```
+
+This codebase represents a production-ready, enterprise-grade trading chart library with comprehensive features, robust error handling, and professional packaging for easy integration into any React application.
 
 ## Changelog
 
