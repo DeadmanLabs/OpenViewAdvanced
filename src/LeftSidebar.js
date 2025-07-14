@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./LeftSidebar.css";
 
 const LeftSidebar = React.memo(() => {
   const [activeMenu, setActiveMenu] = useState(null);

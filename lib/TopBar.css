@@ -1,0 +1,243 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  background-color: #131722;
+  border-bottom: 1px solid #2a2e39;
+  padding: 0 8px;
+  position: relative;
+  z-index: 1000;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.topbar-symbol {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.symbol-icon {
+  font-size: 16px;
+}
+
+.symbol-name {
+  color: #d1d4dc;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #2a2e39;
+  margin: 0 4px;
+}
+
+.interval-selector,
+.chart-type-selector {
+  position: relative;
+}
+
+.interval-button,
+.chart-type-button {
+  background: none;
+  border: none;
+  color: #787b86;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.interval-button:hover,
+.chart-type-button:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.interval-menu,
+.chart-type-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e222d;
+  border: 1px solid #2a2e39;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  min-width: 200px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  margin-top: 4px;
+  z-index: 1100;
+}
+
+.interval-category {
+  border-bottom: 1px solid #2a2e39;
+  padding: 4px 0;
+}
+
+.interval-category:last-child {
+  border-bottom: none;
+}
+
+.interval-category-header {
+  color: #787b86;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  font-weight: 500;
+}
+
+.interval-item,
+.chart-type-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #d1d4dc;
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+.chart-type-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-type-item img {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(7%) saturate(249%) hue-rotate(184deg) brightness(94%) contrast(91%);
+}
+
+.interval-item:hover,
+.chart-type-item:hover {
+  background-color: #2a2e39;
+}
+
+.chart-type-item:hover img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.interval-item.active,
+.chart-type-item.active {
+  background-color: #2962ff;
+  color: #ffffff;
+}
+
+.chart-type-item.active img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.chart-type-separator {
+  height: 1px;
+  background-color: #2a2e39;
+  margin: 4px 0;
+}
+
+.topbar-icon-btn {
+  background: none;
+  border: none;
+  color: #787b86;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.topbar-icon-btn:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.topbar-icon-btn img,
+.chart-type-button img {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(7%) saturate(249%) hue-rotate(184deg) brightness(94%) contrast(91%);
+}
+
+.topbar-icon-btn:hover img,
+.chart-type-button:hover img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.btn-label {
+  font-size: 14px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .btn-label {
+    display: inline;
+  }
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #787b86;
+}
+
+.price-info span {
+  white-space: nowrap;
+}
+
+.price-change {
+  font-weight: 500;
+}
+
+.price-change.positive {
+  color: #26a69a;
+}
+
+.price-change.negative {
+  color: #ef5350;
+}
+
+/* Scrollbar styling for menus */
+.interval-menu::-webkit-scrollbar,
+.chart-type-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.interval-menu::-webkit-scrollbar-track,
+.chart-type-menu::-webkit-scrollbar-track {
+  background: #1e222d;
+}
+
+.interval-menu::-webkit-scrollbar-thumb,
+.chart-type-menu::-webkit-scrollbar-thumb {
+  background: #363a45;
+  border-radius: 3px;
+}
+
+.interval-menu::-webkit-scrollbar-thumb:hover,
+.chart-type-menu::-webkit-scrollbar-thumb:hover {
+  background: #474d5c;
+}

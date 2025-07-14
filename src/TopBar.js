@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./TopBar.css";
 
 const TopBar = React.memo(({ 
   selectedInterval = "1D", 

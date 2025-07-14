@@ -1,28 +1,81 @@
 {
-  "name": "trade-chart",
+  "name": "react-advanced-trading-chart",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "main": "src/index.js",
+  "description": "Advanced React trading chart component with 22+ chart types, TradingView-style interface, and comprehensive financial visualization tools",
+  "keywords": [
+    "react",
+    "trading",
+    "chart",
+    "financial",
+    "candlestick",
+    "ohlc",
+    "heikin-ashi",
+    "renko",
+    "kagi",
+    "point-figure",
+    "tradingview",
+    "visualization",
+    "finance",
+    "stocks",
+    "cryptocurrency"
+  ],
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "TradingViewIcons",
+    "README.md"
+  ],
+  "author": "DeadmanLabs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeadmanLabs/OpenViewAdvanced.git"
+  },
+  "homepage": "https://github.com/DeadmanLabs/OpenViewAdvanced",
+  "bugs": {
+    "url": "https://github.com/DeadmanLabs/OpenViewAdvanced/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
     "d3-dsv": "3.0.1",
     "d3-format": "3.0.1",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0",
     "d3-time": "3.0.0",
     "d3-time-format": "4.0.0",
     "prop-types": "15.7.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-financial-charts": "^2.0.1",
-    "react-scripts": "5.0.1"
+    "react-financial-charts": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.22.0",
     "@babel/runtime": "7.13.8",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "ajv": "^8.17.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "rollup": "^4.6.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "4.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:lib": "rollup -c",
+    "prepublishOnly": "npm run build:lib",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { calculateCandleCount, isValidCombination, getInvalidMessage } from "./utils/intervalUtils";
-import "./FooterBar.css";
 
 const FooterBar = React.memo(({ 
   selectedInterval = { full: "1 day", short: "1D" }, 
