@@ -1,0 +1,154 @@
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  background-color: #131722;
+  border-top: 1px solid #2a2e39;
+  padding: 0 8px;
+  position: relative;
+  z-index: 100;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.range-button {
+  background: none;
+  border: none;
+  color: #787b86;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.range-button:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.range-button.active {
+  background-color: #2962ff;
+  color: #ffffff;
+}
+
+.range-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.range-button.disabled:hover {
+  background-color: transparent;
+  color: #787b86;
+}
+
+.tradingview-watermark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #787b86;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.tradingview-watermark img {
+  filter: brightness(0) saturate(100%) invert(49%) sepia(8%) saturate(555%) hue-rotate(186deg) brightness(94%) contrast(86%);
+}
+
+.axis-settings {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.axis-button {
+  background: none;
+  border: 1px solid transparent;
+  color: #787b86;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.axis-button:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.axis-button.active {
+  background-color: transparent;
+  border-color: #2962ff;
+  color: #2962ff;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 16px;
+  background-color: #2a2e39;
+}
+
+.footer-icon-btn {
+  background: none;
+  border: none;
+  color: #787b86;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icon-btn:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.footer-icon-btn img {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(7%) saturate(249%) hue-rotate(184deg) brightness(94%) contrast(91%);
+}
+
+.footer-icon-btn:hover img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.current-time {
+  color: #787b86;
+  font-size: 12px;
+  font-weight: 500;
+  padding-right: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tradingview-watermark {
+    display: none;
+  }
+  
+  .footer-center {
+    display: none;
+  }
+}
